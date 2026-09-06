@@ -30,9 +30,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 5.3A17.4 17.4 0 0 0 15.4 4l-.5 1a15 15 0 0 0-5.8 0l-.5-1a17 17 0 0 0-4.1 1.3C1.9 9.1 1.2 12.7 1.6 16.2a16.7 16.7 0 0 0 5 2.5l1.2-1.6c-.7-.3-1.3-.6-1.9-1l.5-.4c3.7 1.7 7.6 1.7 11.2 0l.6.4c-.6.4-1.3.7-1.9 1l1.2 1.6a16.8 16.8 0 0 0 5-2.5c.5-4.1-.8-7.7-3-10.9ZM8.8 14.2c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.4 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>
       </button>
       <div class="server-separator"></div>
-      <button class="server-pill photo cyan" data-server="Design Hub" title="Design Hub">DH</button>
-      <button class="server-pill photo sunset" data-server="Gaming Balkan" title="Gaming Balkan">GB</button>
-      <button class="server-pill photo violet" data-server="Dev Croatia" title="Dev Croatia">DC</button>
+      <div id="dynamicServers" class="dynamic-servers"></div>
       <button class="server-pill add" id="addServer" title="Dodaj server">+</button>
       <button class="server-pill explore" title="Istraži servere">⌁</button>
     </aside>
@@ -43,25 +41,7 @@
         <button class="event-card">
           <span class="event-icon">✦</span><span><strong>Novi event</strong><small>Okupi svoju ekipu</small></span>
         </button>
-        <section class="channel-category">
-          <div class="category-title"><span>⌄  INFORMACIJE</span><button>+</button></div>
-          <button class="channel"><span class="hash">#</span> pravila <span class="channel-icon">👥</span></button>
-          <button class="channel"><span class="hash">#</span> obavijesti</button>
-          <button class="channel"><span class="hash">#</span> uloge-i-kanali</button>
-        </section>
-        <section class="channel-category">
-          <div class="category-title"><span>⌄  ZAJEDNICA</span><button>+</button></div>
-          <button class="channel active" data-channel="general"><span class="hash">#</span> general <span class="channel-icon">⚙</span></button>
-          <button class="channel" data-channel="memes"><span class="hash">#</span> memes</button>
-          <button class="channel" data-channel="showcase"><span class="hash">#</span> showcase</button>
-          <button class="channel" data-channel="pomoć"><span class="hash">#</span> pomoć</button>
-        </section>
-        <section class="channel-category">
-          <div class="category-title"><span>⌄  GLASOVNI KANALI</span><button>+</button></div>
-          <button class="channel voice"><span class="speaker">🔊</span> Lounge</button>
-          <button class="channel voice"><span class="speaker">🔊</span> Gaming Room</button>
-          <button class="channel voice"><span class="speaker">🔊</span> Chill Zone</button>
-        </section>
+        <div id="dynamicChannels"></div>
       </div>
       <div class="user-panel">
         <div class="avatar me"><span class="status online"></span>KT</div>
@@ -129,7 +109,24 @@
       <div class="member offline"><div class="avatar gray">DB</div><div><strong>David B.</strong></div></div>
     </aside>
   </div>
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="settings-modal">
+      <aside class="settings-nav">
+        <strong>POSTAVKE</strong>
+        <button class="active" data-settings="profile">Moj profil</button>
+        <button data-settings="appearance">Izgled</button>
+        <button data-settings="voice">Glas i video</button>
+        <button data-settings="server">Server i kanali</button>
+        <button class="danger" id="modalLogout">Odjava</button>
+      </aside>
+      <main class="settings-content">
+        <button class="modal-close" id="modalClose">×</button>
+        <div class="settings-page" id="settingsPage"></div>
+      </main>
+    </section>
+  </div>
   <div class="toast" id="toast"></div>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
