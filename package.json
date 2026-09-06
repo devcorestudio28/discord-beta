@@ -1,0 +1,19 @@
+{
+  "name": "chatter-discord-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Discord-inspired community chat ready for Railway and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.4"
+  }
+}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e1f22" />
+  <title>Chatter — Community</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="servers" aria-label="Serveri">
+      <button class="server-pill brand active" data-server="Chatter HQ" title="Chatter Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 5.3A17.4 17.4 0 0 0 15.4 4l-.5 1a15 15 0 0 0-5.8 0l-.5-1a17 17 0 0 0-4.1 1.3C1.9 9.1 1.2 12.7 1.6 16.2a16.7 16.7 0 0 0 5 2.5l1.2-1.6c-.7-.3-1.3-.6-1.9-1l.5-.4c3.7 1.7 7.6 1.7 11.2 0l.6.4c-.6.4-1.3.7-1.9 1l1.2 1.6a16.8 16.8 0 0 0 5-2.5c.5-4.1-.8-7.7-3-10.9ZM8.8 14.2c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.4 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>
+      </button>
+      <div class="server-separator"></div>
+      <button class="server-pill photo cyan" data-server="Design Hub" title="Design Hub">DH</button>
+      <button class="server-pill photo sunset" data-server="Gaming Balkan" title="Gaming Balkan">GB</button>
+      <button class="server-pill photo violet" data-server="Dev Croatia" title="Dev Croatia">DC</button>
+      <button class="server-pill add" id="addServer" title="Dodaj server">+</button>
+      <button class="server-pill explore" title="Istraži servere">⌁</button>
+    </aside>
+
+    <aside class="channels" id="channelsPanel">
+      <button class="server-name" id="serverName">Chatter HQ <span>⌄</span></button>
+      <div class="channel-scroll">
+        <button class="event-card">
+          <span class="event-icon">✦</span><span><strong>Novi event</strong><small>Okupi svoju ekipu</small></span>
+        </button>
+        <section class="channel-category">
+          <div class="category-title"><span>⌄  INFORMACIJE</span><button>+</button></div>
+          <button class="channel"><span class="hash">#</span> pravila <span class="channel-icon">👥</span></button>
+          <button class="channel"><span class="hash">#</span> obavijesti</button>
+          <button class="channel"><span class="hash">#</span> uloge-i-kanali</button>
+        </section>
+        <section class="channel-category">
+          <div class="category-title"><span>⌄  ZAJEDNICA</span><button>+</button></div>
+          <button class="channel active" data-channel="general"><span class="hash">#</span> general <span class="channel-icon">⚙</span></button>
+          <button class="channel" data-channel="memes"><span class="hash">#</span> memes</button>
+          <button class="channel" data-channel="showcase"><span class="hash">#</span> showcase</button>
+          <button class="channel" data-channel="pomoć"><span class="hash">#</span> pomoć</button>
+        </section>
+        <section class="channel-category">
+          <div class="category-title"><span>⌄  GLASOVNI KANALI</span><button>+</button></div>
+          <button class="channel voice"><span class="speaker">🔊</span> Lounge</button>
+          <button class="channel voice"><span class="speaker">🔊</span> Gaming Room</button>
+          <button class="channel voice"><span class="speaker">🔊</span> Chill Zone</button>
+        </section>
+      </div>
+      <div class="user-panel">
+        <div class="avatar me"><span class="status online"></span>KT</div>
+        <div class="user-copy"><strong>ktoma</strong><span>Online</span></div>
+        <button id="micBtn" title="Isključi mikrofon">🎙</button>
+        <button id="headsetBtn" title="Zagluši">🎧</button>
+        <button id="settingsBtn" title="Postavke">⚙</button>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-header">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <span class="header-hash">#</span><strong id="channelTitle">general</strong>
+        <span class="channel-topic">Glavni chat za sve članove zajednice</span>
+        <div class="header-actions">
+          <button title="Obavijesti">🔔</button><button title="Prikvačene poruke">📌</button>
+          <button class="members-toggle" id="membersToggle" title="Članovi">👥</button>
+          <label class="search"><input id="searchInput" placeholder="Pretraži" /><span>⌕</span></label>
+          <button title="Pomoć">?</button>
+        </div>
+      </header>
+
+      <section class="messages" id="messages">
+        <div class="channel-intro">
+          <div class="intro-icon">#</div>
+          <h1>Dobro došli u #general!</h1>
+          <p>Ovo je početak kanala <strong>#general</strong>.</p>
+          <button>Uredi kanal</button>
+        </div>
+        <div class="date-divider"><span>6. rujna 2026.</span></div>
+        <article class="message" data-text="hej ekipa dobro došli kako ste danas">
+          <div class="avatar coral">LM</div><div class="message-body"><div><strong class="name coral-text">Lana M.</strong><time>Danas u 10:14</time></div><p>Hej ekipa! 👋 Dobro došli na naš server. Kako ste danas?</p><div class="reaction">👋 <b>4</b></div></div>
+        </article>
+        <article class="message" data-text="odlično upravo završavam novi dizajn aplikacije">
+          <div class="avatar blue">MK</div><div class="message-body"><div><strong class="name blue-text">Marko K.</strong><time>Danas u 10:16</time></div><p>Odlično! Upravo završavam novi dizajn aplikacije. Jedva čekam pokazati vam 🚀</p></div>
+        </article>
+        <article class="message" data-text="zvuči super baci ga u showcase kanal">
+          <div class="avatar green">NV</div><div class="message-body"><div><strong class="name green-text">Nikola V.</strong><time>Danas u 10:17</time></div><p>Zvuči super! Baci ga u <span class="mention">#showcase</span> kanal kad bude spreman.</p><div class="reaction selected">🔥 <b>3</b></div></div>
+        </article>
+        <article class="message" data-text="večeras gaming room oko 20h">
+          <div class="avatar pink">ES</div><div class="message-body"><div><strong class="name pink-text">Ema S.</strong><time>Danas u 10:22</time></div><p>Je li netko za Gaming Room večeras oko 20h? 🎮</p><div class="reaction">🎮 <b>2</b></div></div>
+        </article>
+      </section>
+      <div class="typing" id="typing"></div>
+      <form class="composer" id="messageForm">
+        <button type="button" class="plus">+</button>
+        <textarea id="messageInput" rows="1" placeholder="Pošalji poruku u #general" aria-label="Nova poruka"></textarea>
+        <button type="button" title="Poklon">🎁</button><button type="button" title="GIF" class="gif">GIF</button><button type="button" title="Naljepnice">◈</button><button type="button" title="Emoji">☺</button>
+      </form>
+    </main>
+
+    <aside class="members" id="membersPanel">
+      <div class="member-group">ONLINE — 6</div>
+      <div class="member"><div class="avatar coral"><span class="status online"></span>LM</div><div><strong class="coral-text">Lana M.</strong><small>Vodi zajednicu ✨</small></div><span class="crown">♛</span></div>
+      <div class="member"><div class="avatar blue"><span class="status online"></span>MK</div><div><strong class="blue-text">Marko K.</strong><small>Figma</small></div></div>
+      <div class="member"><div class="avatar green"><span class="status online"></span>NV</div><div><strong class="green-text">Nikola V.</strong><small>Visual Studio Code</small></div></div>
+      <div class="member"><div class="avatar pink"><span class="status idle"></span>ES</div><div><strong class="pink-text">Ema S.</strong><small>Ne ometaj me 🎧</small></div></div>
+      <div class="member"><div class="avatar gold"><span class="status online"></span>IP</div><div><strong>Ivan P.</strong><small>Spotify · Lo-fi</small></div></div>
+      <div class="member"><div class="avatar purple"><span class="status online"></span>AS</div><div><strong>Ana S.</strong><small>Online</small></div></div>
+      <div class="member-group">OFFLINE — 3</div>
+      <div class="member offline"><div class="avatar gray">TJ</div><div><strong>Tomislav J.</strong></div></div>
+      <div class="member offline"><div class="avatar gray">KL</div><div><strong>Klara L.</strong></div></div>
+      <div class="member offline"><div class="avatar gray">DB</div><div><strong>David B.</strong></div></div>
+    </aside>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
