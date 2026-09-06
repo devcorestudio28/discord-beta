@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <section class="auth-screen" id="authScreen">
+    <div class="auth-art"><div class="auth-orbit">✦</div><h1>Chatter</h1><p>Tvoje mjesto za razgovor, druženje i zajednicu.</p></div>
+    <div class="auth-card">
+      <h2 id="authTitle">Kreiraj korisnički račun</h2>
+      <p id="authSubtitle">Registriraj se kako bi pristupio zajednici.</p>
+      <form id="authForm">
+        <label id="displayNameLabel">KORISNIČKO IME<input id="authDisplayName" autocomplete="username" maxlength="32" required /></label>
+        <label>E-MAIL<input id="authEmail" type="email" autocomplete="email" maxlength="255" required /></label>
+        <label>LOZINKA<input id="authPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required /></label>
+        <div class="auth-error" id="authError"></div>
+        <button type="submit" class="auth-submit" id="authSubmit">Registriraj se</button>
+      </form>
+      <button class="auth-switch" id="authSwitch">Već imaš račun? <span>Prijavi se</span></button>
+      <a class="desktop-download" href="https://github.com/devcorestudio28/discord-beta/releases/latest" target="_blank" rel="noreferrer">▣ Preuzmi desktop aplikaciju</a>
+    </div>
+  </section>
   <div class="app-shell">
     <aside class="servers" aria-label="Serveri">
       <button class="server-pill brand active" data-server="Chatter HQ" title="Chatter Home">
@@ -53,6 +69,7 @@
         <button id="micBtn" title="Isključi mikrofon">🎙</button>
         <button id="headsetBtn" title="Zagluši">🎧</button>
         <button id="settingsBtn" title="Postavke">⚙</button>
+        <button id="logoutBtn" title="Odjava">↪</button>
       </div>
     </aside>
 
@@ -65,7 +82,7 @@
           <button title="Obavijesti">🔔</button><button title="Prikvačene poruke">📌</button>
           <button class="members-toggle" id="membersToggle" title="Članovi">👥</button>
           <label class="search"><input id="searchInput" placeholder="Pretraži" /><span>⌕</span></label>
-          <button title="Pomoć">?</button>
+          <a class="header-download" href="https://github.com/devcorestudio28/discord-beta/releases/latest" target="_blank" title="Preuzmi desktop aplikaciju">⇩</a><button title="Pomoć">?</button>
         </div>
       </header>
 
